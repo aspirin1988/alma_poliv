@@ -9,25 +9,28 @@
 	<title>Алма-полив |
 		<?php
 		if (is_tax()||is_category()){
-			$_title=$field['title'];
+			$_title=$field['meta-title'];
 			if ($_title){
 				echo $_title;
 			} else{
-				if (get_field('title')){
-					the_field('title');
+				if (get_field('meta-title')){
+					the_field('meta-title');
 				}else{
 					the_title();}
 			}
 		}else{
-			if (get_field('title')){
-				the_field('title');
+			if (get_field('meta-title')){
+				the_field('meta-title');
 			}else{
 				the_title();}
 		}?>
 	</title>
-	<meta name="description" content="<?php if (is_tax()){ echo $field['description'];}else{ the_field('description');}?>"/>
+	<meta name="description" content="<?php if (is_tax()){
+		echo $field['meta-description'];
+	}else{
+		the_field('meta-description');
+	}?>"/>
 	<link rel="shortcut icon" href="<?=get_field('favicon',4)?>">
-
 	<!-- Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<!-- Bootstrap -->
